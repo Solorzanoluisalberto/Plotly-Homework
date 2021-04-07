@@ -63,10 +63,6 @@ namesTest(init);
 function Print_Test(params1, params2, plot) {
   console.log(params1)
   console.log(params2[0].sample_values)
-  params2.sort()
-  params1.sort()
-  console.log(params1)
-  console.log(params2[0].sample_values)
   console.log("new Plot? " + plot)
   
 var sample_metadata1 = d3.select("#sample-metadata")
@@ -82,9 +78,9 @@ Object.entries(params1[0]).forEach(([key, value]) => {
 // var text = params2.map(row => row[0]) // .otu_labels;
 // console.log(text);
 
-var text = params2[0].otu_labels.sort().slice(0,10);
-var x_axis = params2[0].sample_values.sort().slice(0,10);
-var y_axis = params2[0].otu_ids.sort().slice(0,10);
+var text = params2[0].otu_labels.slice(0,10);
+var x_axis = params2[0].sample_values.slice(0,10);
+var y_axis = params2[0].otu_ids.slice(0,10).map(ID => `OTU  ${ID}`);
 console.log(x_axis)
 console.log(y_axis)
 console.log(text)
@@ -95,30 +91,30 @@ var trace1 = {
   y: y_axis,
   type: 'bar',
   text: text,
-  orientation: 'h',
-  marker: {
-    color: 'rgb(142,124,195)'
-  }
+  orientation: 'h'
+  // marker: {
+  //   color: 'rgb(142,124,195)'
+  // }
 };
 console.log(trace1.x)
 
 var data = [trace1];
 
 var layout = {
-  title: 'Test Button',
-  margin: { t: 30, l: 150 },
-  font:{
-    family: 'Raleway, sans-serif'
-  },
-  showlegend: true,
-  xaxis: {
-    tickangle: -15
-  },
-  yaxis: {
-    zeroline: true,
-    gridwidth: 2
-  },
-  // bargap :0.05
+  title: 'top 10 OTUs found',
+  margin: { t: 30, l: 150 }
+  // font:{
+  //   family: 'Raleway, sans-serif'
+  // },
+  // showlegend: false,
+  // xaxis: {
+  //   tickangle: -15
+  // },
+  // yaxis: {
+  //   zeroline: false,
+  //   gridwidth: 2
+  // },
+  // // bargap :0.05
 };
 
 if (plot) {
