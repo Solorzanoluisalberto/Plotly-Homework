@@ -8,37 +8,37 @@ function unpack(rows, index) {
   })
 }
 
-function namesBelly(Belly){
+function namesTest(Test){
 d3.json("../../data/samples.json").then(function(data) {
 let new_plot = true;
-if (Belly.length == 0){
-  let Belly_1 = data.names[0];
-  console.log(Belly_1)
+if (Test.length == 0){
+  let Test_1 = data.names[0];
+  console.log(Test_1)
   var Selection_Samples = data["samples"].filter(function(sample) {
-  return sample.id == Belly_1;
+  return sample.id == Test_1;
   });
   var Selection_metadata = data["metadata"].filter(function(meta) {
-    return meta.id == Belly_1;
+    return meta.id == Test_1;
   });
   console.log(Selection_Samples);
   console.log(Selection_metadata);
-  // Print_Belly(Selection_metadata, Selection_Samples, new_plot)
+  // Print_Test(Selection_metadata, Selection_Samples, new_plot)
 } else{
     new_plot = false;
     console.log("new dato from funtion button")
-    let New_Belly = Belly
-    console.log(New_Belly)
+    let New_Test = Test
+    console.log(New_Test)
     var Selection_Samples = data["samples"].filter(function(sample) {
-      return sample.id == New_Belly;
+      return sample.id == New_Test;
       });
     var Selection_metadata = data["metadata"].filter(function(meta) {
-      return meta.id == New_Belly;
+      return meta.id == New_Test;
     });
     console.log(Selection_Samples);
     console.log(Selection_metadata);
-    // Print_Belly(Selection_metadata, Selection_Samples, new_plot)
+    // Print_Test(Selection_metadata, Selection_Samples, new_plot)
 }
-Print_Belly(Selection_metadata, Selection_Samples, new_plot)
+Print_Test(Selection_metadata, Selection_Samples, new_plot)
 
   //  var newData = data.
   let names = data.names;
@@ -58,9 +58,9 @@ Print_Belly(Selection_metadata, Selection_Samples, new_plot)
   }
 
 var init = ""
-namesBelly(init);
+namesTest(init);
 
-function Print_Belly(params1, params2, plot) {
+function Print_Test(params1, params2, plot) {
   console.log(params1)
   console.log(params2[0].sample_values)
   params2.sort()
@@ -105,7 +105,7 @@ console.log(trace1.x)
 var data = [trace1];
 
 var layout = {
-  title: 'Belly Button',
+  title: 'Test Button',
   margin: { t: 30, l: 150 },
   font:{
     family: 'Raleway, sans-serif'
@@ -135,10 +135,10 @@ if (plot) {
 }
 
 // nombres("940");
-function optionChanged(Belly) {
-  console.log(Belly)
+function optionChanged(Test) {
+  console.log(Test)
 
-  namesBelly(Belly)
+  namesTest(Test)
 }
 
 
