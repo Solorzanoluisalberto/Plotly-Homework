@@ -70,15 +70,9 @@ Object.entries(metadata[0]).forEach(([key, value]) => {
   .attr("class","text-success")
 });
 
-// var text = unpack(params2[0],0)
-// console.log(params2)
-// var text = params2.map(row => row[0]) // .otu_labels;
-// console.log(text);
-
 var sample_values = samples[0].sample_values.slice(0,10).reverse();
 var otu_ids = samples[0].otu_ids.slice(0,10).map(ID => `OTU → ${ID}`).reverse();
 var otu_labels = samples[0].otu_labels.slice(0,10).reverse();
-
 
 console.log("sample_values " + sample_values);
 console.log("otu_ids " + otu_ids);
@@ -146,8 +140,7 @@ var layout_bubble = {
 if (new_plot) {
   Plotly.newPlot('bar', data_bar, layout_bar);
   Plotly.newPlot('bubble', data_bubble, layout_bubble);
-} else {
-  
+} else { 
   Plotly.restyle("bar", "x", [trace1_bar.x]);
   Plotly.restyle("bar", "y", [trace1_bar.y]);
   Plotly.newPlot('bubble', data_bubble, layout_bubble);
