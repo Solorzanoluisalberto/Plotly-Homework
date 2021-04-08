@@ -100,6 +100,7 @@ var layout_bar = {
   font:{
     family: 'Raleway, sans-serif'
   },
+  margin: { t: 25,  b: 25 },
   showlegend: false,
   xaxis: {
     tickangle: -45
@@ -137,14 +138,7 @@ var layout_bubble = {
 };
 
 // ========================================================================
-if (new_plot) {
-  Plotly.newPlot('bar', data_bar, layout_bar);
-  Plotly.newPlot('bubble', data_bubble, layout_bubble);
-} else { 
-  Plotly.restyle("bar", "x", [trace1_bar.x]);
-  Plotly.restyle("bar", "y", [trace1_bar.y]);
-  Plotly.newPlot('bubble', data_bubble, layout_bubble);
-}
+
 // =========================================================
 // Advanced Challenge Assignment (Optional)
 // var value_gauge = Math.max(samples[0].sample_values);
@@ -159,7 +153,7 @@ var data = [
     type: "indicator",
     mode: "gauge+number", // "gauge+number+delta"
     value: wfreq,
-    title: { text: `Weekly Washing Frequency of: ${metadata[0].id}`, font: { size: 24 } },
+    title: { text: `Belly Button Washing of: ${metadata[0].id} <br>Scrubs per Week Frequency`, font: { size: 24 }},
     delta: { reference: 9, increasing: { color: "RebeccaPurple" } },
     gauge: {
       axis: { range: [0, 9], tickwidth: 1, tickcolor: "#993300" },
@@ -195,7 +189,17 @@ var layout = {
   font: { color: 'rgb(142,124,195)', family: "Arial" }
 };
 
-Plotly.newPlot('gauge', data, layout);
+if (new_plot) {
+  Plotly.newPlot('bar', data_bar, layout_bar);
+  Plotly.newPlot('bubble', data_bubble, layout_bubble);
+  Plotly.newPlot('gauge', data, layout);
+} else { 
+  Plotly.restyle("bar", "x", [trace1_bar.x]);
+  Plotly.restyle("bar", "y", [trace1_bar.y]);
+  Plotly.newPlot('bubble', data_bubble, layout_bubble);
+  Plotly.newPlot('gauge', data, layout);
+}
+
 
 };
 
