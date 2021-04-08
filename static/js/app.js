@@ -157,26 +157,26 @@ console.log("Frecuencia: " + wfreq);
 var data = [
   {
     type: "indicator",
-    mode: "gauge+number+delta",
+    mode: "gauge+number", // "gauge+number+delta"
     value: wfreq,
-    title: { text: "Speed", font: { size: 24 } },
+    title: { text: `Weekly Washing Frequency of: ${metadata[0].id}`, font: { size: 24 } },
     delta: { reference: 9, increasing: { color: "RebeccaPurple" } },
     gauge: {
-      axis: { range: [0, 9], tickwidth: 1, tickcolor: "darkblue" },
-      bar: { color: "darkblue" },
+      axis: { range: [0, 9], tickwidth: 1, tickcolor: "#993300" },
+      bar: { color: "#993300" },
       bgcolor: "white",
       borderwidth: 2,
       bordercolor: "gray",
       steps: [
-        { range: [0, 1], color: "cyan" },
-        { range: [1, 2], color: "royalblue" },
-        { range: [2, 3], color: "cyan" },
-        { range: [3, 4], color: "royalblue" },
-        { range: [4, 5], color: "cyan" },
-        { range: [5, 6], color: "royalblue" },
-        { range: [6, 7], color: "cyan" },
-        { range: [7, 8], color: "royalblue" },
-        { range: [8, 9], color: "cyan" }
+        { range: [0, 1], color: "#ffeee6" },
+        { range: [1, 2], color: "#ffddcc" },
+        { range: [2, 3], color: "#ffccb3" },
+        { range: [3, 4], color: "#ffbb99" },
+        { range: [4, 5], color: "#ffaa80" },
+        { range: [5, 6], color: "#ff9966" },
+        { range: [6, 7], color: "#ff884d" },
+        { range: [7, 8], color: "#ff7733" },
+        { range: [8, 9], color: "#ff661a" }
       ],
       threshold: {
         line: { color: "red", width: 4 },
@@ -192,11 +192,10 @@ var layout = {
   // height: 400,
   margin: { t: 25, r: 25, l: 25, b: 25 },
   paper_bgcolor: "lavender",
-  font: { color: "darkblue", family: "Arial" }
+  font: { color: 'rgb(142,124,195)', family: "Arial" }
 };
 
 Plotly.newPlot('gauge', data, layout);
-
 
 };
 
