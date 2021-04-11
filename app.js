@@ -129,9 +129,8 @@ var trace1_bubble = {
 };
 
 var data_bubble = [trace1_bubble];
-
 var layout_bubble = {
-  title: 'Marker Size and Color',
+  title: 'Sample',
   showlegend: false
   // height: 600,
   // width: 600
