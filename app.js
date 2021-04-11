@@ -9,7 +9,7 @@ function unpack(rows, index) {
 }
 
 function namesTest(Test){
-d3.json("../../data/samples.json").then(function(data) {
+d3.json("samples.json").then(function(data) {
   let new_plot = true;
   if (Test.length == 0){
     let Test_1 = data.names[0];
@@ -153,24 +153,24 @@ var data = [
     type: "indicator",
     mode: "gauge+number", // "gauge+number+delta"
     value: wfreq,
-    title: { text: `Belly Button Washing of: ${metadata[0].id} <br>Scrubs per Week Frequency`, font: { size: 24 }},
+    title: { text: `Belly Button Washing Frequency: <br>Scrubs per Week <br> Id No. ${metadata[0].id} `, font: { size: 24 }},
     delta: { reference: 9, increasing: { color: "RebeccaPurple" } },
     gauge: {
       axis: { range: [0, 9], tickwidth: 1, tickcolor: "#993300" },
       bar: { color: "#993300" },
       bgcolor: "white",
-      borderwidth: 2,
+      borderwidth: 3,
       bordercolor: "gray",
       steps: [
         { range: [0, 1], color: "#ffeee6" },
-        { range: [1, 2], color: "#ffddcc" },
-        { range: [2, 3], color: "#ffccb3" },
-        { range: [3, 4], color: "#ffbb99" },
-        { range: [4, 5], color: "#ffaa80" },
-        { range: [5, 6], color: "#ff9966" },
-        { range: [6, 7], color: "#ff884d" },
-        { range: [7, 8], color: "#ff7733" },
-        { range: [8, 9], color: "#ff661a" }
+        { range: [1.01, 2], color: "#ffddcc" },
+        { range: [2.01, 3], color: "#ffccb3" },
+        { range: [3.01, 4], color: "#ffbb99" },
+        { range: [4.01, 5], color: "#ffaa80" },
+        { range: [5.01, 6], color: "#ff9966" },
+        { range: [6.01, 7], color: "#ff884d" },
+        { range: [7.01, 8], color: "#ff7733" },
+        { range: [8.01, 9], color: "#ff661a" }
       ],
       threshold: {
         line: { color: "red", width: 4 },
@@ -184,9 +184,9 @@ var data = [
 var layout = {
   // width: 500,
   // height: 400,
-  margin: { t: 25, r: 25, l: 25, b: 25 },
+  margin: { t: 20, r: 20, l: 20, b: 25 },
   paper_bgcolor: "lavender",
-  font: { color: 'rgb(142,124,195)', family: "Arial" }
+  font: { color: 'rgb(142,124,195)', family: "Arial" , size:"18"}
 };
 
 if (new_plot) {
@@ -199,7 +199,6 @@ if (new_plot) {
   Plotly.newPlot('bubble', data_bubble, layout_bubble);
   Plotly.newPlot('gauge', data, layout);
 }
-
 
 };
 
